@@ -27,10 +27,16 @@ public class UserController {
     @RequestMapping("/save")
     public String saveUsers() {
         repository.deleteAll();
-        //repository.save(new User("Andres", "Tejero"));
-        //repository.save(new User("Jose", "Perez"));
-        //repository.save(new User("Pepe", "Gomez"));
+        repository.save(new User("Andres", "Tejero"));
+        repository.save(new User("Jose", "Perez"));
+        repository.save(new User("Pepe", "Gomez"));
         return "Saved";
+    }
+
+    @RequestMapping("/new")
+    public String newUsers() {
+        repository.save(new User("prod", "prod"));
+        return "Saved prod";
     }
 
     @RequestMapping("/users")
